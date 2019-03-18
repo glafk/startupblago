@@ -100,4 +100,9 @@ app.delete('/workshop', function(req, res){
     }
   })
 });
+
+app.get('*', function(req, res){
+  res.send("KZO");
+})
+
 var server = app.listen(config.port);
