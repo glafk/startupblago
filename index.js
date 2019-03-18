@@ -7,10 +7,10 @@ var Code = require('mongoose').model('Code');
 var Presenter = require('mongoose').model('Presenter');
 
 var app = express();
-var server = app.listen(config.route);
+
 
 //Get all workshops data
-app.get('/workshop', function () {
+app.get('/workshop', function (req, res) {
     Workshop.find({}).exec(function (err, workshops) {
       if(err){
         res.status(400);
@@ -22,7 +22,7 @@ app.get('/workshop', function () {
 });
 
 //Get all speakers
-app.get('/speakers', function () {
+app.get('/speakers', function (req, res) {
   Presenter.find({}).exec(function (err, speakers) {
     if(err){
       res.status(400);
@@ -100,3 +100,4 @@ app.delete('/workshop', function(req, res){
     }
   })
 });
+var server = app.listen(config.port);
