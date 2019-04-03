@@ -1,0 +1,61 @@
+.container
+    div.center(ng-hide="Authentication.isAuthenticated()" style="margin-top: 40px; align: center")
+      .row
+        .col-md-9
+          .well
+            form.form-inline(id="signUpForm")
+              fieldset
+                  h4 Sign up
+                  div.form-group
+                      label.col-md-2.control-label(for="fullname") Name
+                      div.col-md-6
+                        input.form-control(type="text", id="fullname", placeholder="Full name", ng-model="attendee.name")
+                  div.form-group
+                      label.col-md-2.control-label(for="email") Email
+                      div.col-md-6
+                        input.form-control(type="text", id="email", placeholder="Email", ng-model="attendee.email")
+                  div.form-group
+                      label.col-md-2.control-label(for="text") Code
+                      div.col-md-6
+                        input.form-control(type="text", id="code", placeholder="Your unique code", ng-model="attendee.code")
+                  div.col-sm-10.col-sm-offset-2(style="margin-top: 10px;")
+                      button.btn-sm.btn.btn-success(type="submit", ng-click="signup_attendee()") Sign up            
+    div(ng-show="Authentication.isAuthenticated()")
+      h4(style="text-align: center") Morning workshops
+      ul.list-group(id="morning" ng-if="workshops.length > 0" style="list-style-type: none; margin-top: 30px; margin-bottom: 30px")
+          li.col-md-offset-3.col-md-8.list-group-item.align-self-center(ng-repeat="workshop in workshops" ng-show="!isAfternoon(workshop)")
+              .media
+                img.align-self-start.mr-3(ng-src="{{workshop.imgSrc}}")
+                .media-body
+                    div(ng-click="toggleFullState(workshop)")
+                      h5.mt-0 {{workshop.theme}}
+                      div
+                       span(style="font-size: 20px") {{workshop.presenter}}
+                       span(style="margin-left: 40px; font-size: 20px") 10:00 - 11:30
+                    div(ng-show="workshop.fullState" style="margin-top: 10px")
+                        {{workshop.description}}
+                        div(style="margin-top: 10px") Capacity: {{workshop.attendees.length + " / " + workshop.capacity}}
+                        div(style="margin-top: 10px") 
+                          button.btn.btn-success(ng-show="!hasSignedUp(workshop)" ng-click="signup(workshop)") Sign up
+                          button.btn.btn-danger(ng-show="hasSignedUp(workshop)" ng-click="signout(workshop)") Sign out
+      h4(style="text-align: center") Afternoon workshops
+      ul.list-group(id="afternoon" ng-if="workshops.length > 0" style="list-style-type: none; margin-top: 30px")
+          li.col-md-offset-3.col-md-8.list-group-item.align-self-center(ng-repeat="workshop in workshops" ng-show="isAfternoon(workshop)")
+              .media
+                img.align-self-start.mr-3(ng-src="{{workshop.imgSrc}}")
+                .media-body
+                    div(ng-click="toggleFullState(workshop)")
+                     h5.mt-0 {{workshop.presenter}}
+                     div
+                     span(style="font-size: 20px") {{workshop.presenter}}
+                     span(style="margin-left: 40px; font-size: 20px") 14:00 - 14:45
+                    div(ng-show="workshop.fullState" style="margin-top: 10px")
+                        {{workshop.description}}
+                        div(style="margin-top: 10px") Capacity: {{workshop.attendees.length + " / " + workshop.capacity}}
+                        div(style="margin-top: 10px") 
+                          button.btn.btn-success(ng-show="!hasSignedUp(workshop) && isNotFull(workshop)" ng-click="signup(workshop)") Sign up
+                          button.btn.btn-danger(ng-show="hasSignedUp(workshop)" ng-click="signout(workshop)") Sign out
+      
+                    
+
+        

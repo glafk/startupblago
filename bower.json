@@ -1,0 +1,26 @@
+{
+  "name": "startup",
+  "description": "Startup app",
+  "main": "index.js",
+  "authors": [
+    "The 4th Department"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/glafk/StartUP",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.8",
+    "jquery": "^3.3.1",
+    "bootstrap": "^4.3.1",
+    "angular-resource": "^1.7.8",
+    "angular-route": "^1.7.8",
+    "angular-cookies": "^1.7.8"
+  }
+}

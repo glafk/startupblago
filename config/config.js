@@ -1,5 +1,5 @@
 module.exports = {
   //db: 'mongodb://localhost/startup',
-  db: 'mongodb+srv://startup_user:Aidee1@startup-mwobm.gcp.mongodb.net/test?retryWrites=true',
+  db: 'mongodb://<dbuser>:<dbpassword>@ds121716.mlab.com:21716/startup',
   port: process.env.PORT || 8080
 }

@@ -1,0 +1,9 @@
+extends layout
+block main-content
+  div(ng-controller="AuthController")
+    header.navbar-default.navbar-fixed-top.bg-primary.navbar-dark
+      .container
+        .navbar-header(style="text-align: center")
+          a.navbar-brand(href="#/") StartUP Conference 2019
+  section(style="margin-top: 30px")
+    div(ng-view)

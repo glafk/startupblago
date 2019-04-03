@@ -10,7 +10,7 @@ var attendeeSchema = mongoose.Schema({
 
 attendeeSchema.path('email').validate(function (email) {
    var emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-   return emailRegex.test(email.text);
+   return emailRegex.test(email);
 }, 'The e-mail field cannot be empty.')
 
 mongoose.model('Attendee', attendeeSchema);

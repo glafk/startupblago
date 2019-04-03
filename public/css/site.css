@@ -1,0 +1,21 @@
+img {
+  border-radius: 70%;
+  border: 3px solid #931840;
+  width: 80px;
+  height: 80px;
+}
+
+img:hover {
+  box-shadow: 0 0 10px 5px rgb(120,120,120);
+}
+
+.form-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.center {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}

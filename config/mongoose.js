@@ -6,7 +6,7 @@ var Code = require('../models/Code');
 var Presenter = require('../models/Presenter');
 
 module.exports = function (config) {
-	mongoose.connect(config.db);
+	mongoose.connect(config.db, {useNewUrlParser: true});
   var db = mongoose.connection;
 
     db.once('open', function(err) {
