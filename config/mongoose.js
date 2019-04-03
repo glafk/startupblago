@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 var Attendee = require('../models/Attendee');
 var Workshop = require('../models/Workshop');
 var Code = require('../models/Code');
-var Presenter = require('../models/Presenter');
 
 module.exports = function (config) {
 	mongoose.connect(config.db, {useNewUrlParser: true});
