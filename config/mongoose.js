@@ -9,7 +9,7 @@ module.exports = function (config) {
 	mongoose.connect(config.db, {useNewUrlParser: true});
   var db = mongoose.connection;
 
-    db.once('open', function(err) {
+    db.on('connected', function(err) {
         if (err) {
             console.log('Database could not be opened: ' + err);
             return;
