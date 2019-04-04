@@ -45,9 +45,9 @@
                 img.align-self-start.mr-3(ng-src="{{workshop.imgSrc}}")
                 .media-body
                     div(ng-click="toggleFullState(workshop)")
-                     h5.mt-0 {{workshop.presenter}}
+                     h5.mt-0 {{workshop.theme}}
                      div
-                     span(style="font-size: 20px") {{workshop.theme}}
+                     span(style="font-size: 20px") {{workshop.presenter}}
                      span(style="margin-left: 40px; font-size: 20px") 14:00 - 14:45
                     div(ng-show="workshop.fullState" style="margin-top: 10px")
                         {{workshop.description}}
